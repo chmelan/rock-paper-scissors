@@ -4,9 +4,21 @@
 </head>
 <body>
 <script>
-    function computerPlay (){
-return Math.floor(Math.random()*3);
-    }
+ function computerPlay(){
+switch(Math.floor(Math.random()*3)){
+    case 0:
+        return "rock";
+        break;
+    case 1: 
+        return "paper";
+        break;
+    case 2: 
+        return "scissors";
+        break;
+}
+ }
+
+   
 
 </script>
 </body>
