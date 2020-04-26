@@ -4,7 +4,10 @@
 </head>
 <body>
 <script>
- function computerPlay(){
+let player_score = 0;
+let computer_score = 0;
+
+function computerPlay(){
 switch(Math.floor(Math.random()*3)){
     case 0:
         return "rock";
@@ -17,32 +20,60 @@ switch(Math.floor(Math.random()*3)){
         break;
 }
  }
-function playRound(playerSelection, computerSelection){
+function playRound( playerSelection, computerSelection){
+
+
     let player = playerSelection.toLowerCase();
-    let computer = computerSelection.toLowerCase();
+    let computer = computerSelection;
 if (player == computer){
-    return "You tied!";
+    ++player_score;
+    ++computer_score;
+    return alert("You Tied!");
 }
 else if ((player == "rock")&&(computer == "scissors")){
-    return "You win! Rock beats Scissors!"
+    ++player_score;
+    return ("You win! Rock beats Scissors!");
 }
 else if ((player == "paper")&&(computer == "rock")){ 
-    return "You win! Paper beats Rock!"
+    ++player_score;
+    return alert("You win! Paper beats Rock!");
 }
 else if ((player == "scissors")&&(computer == "paper")){
-    return "You win! Scissors beats Paper!"
+    ++player_score;
+    return alert("You win! Scissors beats Paper!");
 }
 else if ((player == "rock")&&(computer == "paper")){
-    return "You Lose! Paper beats Rock!"
+    ++computer_score;
+    return alert("You lose! Paper beats Rock!")
 }else if ((player == "paper")&&(computer == "scissors")){
-    return "You Lose! Scissors beats Paper!"
+    ++computer_score
+    return alert("You lose! Scissors beats Paper!");
 }else if ((player == "scissors")&&(computer == "rock")){
-    return "You Lose! Rock beats Scissors!"
+    ++computer_score;
+    return alert("You lose! Rock beats Scissors!");
+}
 }
 
-
+function game(){
+    playRound(prompt("Select Rock, Paper, or Scissors"), computerPlay());
+    playRound(prompt("Select Rock, Paper, or Scissors"), computerPlay());
+    playRound(prompt("Select Rock, Paper, or Scissors"), computerPlay());
+    playRound(prompt("Select Rock, Paper, or Scissors"), computerPlay());
+    playRound(prompt("Select Rock, Paper, or Scissors"), computerPlay());
+    alert(scoreCompare());
 }
-   
+
+function scoreCompare(){
+    if (player_score > computer_score){
+        return "You win the game! " + player_score + " - " + computer_score;
+    }
+    else if (player_score < computer_score){
+        return "You lose the game."  + player_score + " - " + computer_score;;
+    }
+    else{
+        return "Tie game."  + player_score + " - " + computer_score;
+    }
+}
 
 </script>
 </body>
