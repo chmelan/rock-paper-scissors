@@ -13,11 +13,12 @@ switch(Math.floor(Math.random()*3)){
         return "scissors";
         break;
 }
- }
+}
+
 function playRound( playerSelection, computerSelection){
 
 
-    let player = playerSelection.toLowerCase();
+    let player = playerSelection;
     let computer = computerSelection;
 if (player == computer){
     ++player_score;
@@ -26,7 +27,7 @@ if (player == computer){
 }
 else if ((player == "rock")&&(computer == "scissors")){
     ++player_score;
-    return ("You win! Rock beats Scissors!");
+    return alert("You win! Rock beats Scissors!");
 }
 else if ((player == "paper")&&(computer == "rock")){ 
     ++player_score;
@@ -48,15 +49,6 @@ else if ((player == "rock")&&(computer == "paper")){
 }
 }
 
-function game(){
-    playRound(prompt("Select Rock, Paper, or Scissors"), computerPlay());
-    playRound(prompt("Select Rock, Paper, or Scissors"), computerPlay());
-    playRound(prompt("Select Rock, Paper, or Scissors"), computerPlay());
-    playRound(prompt("Select Rock, Paper, or Scissors"), computerPlay());
-    playRound(prompt("Select Rock, Paper, or Scissors"), computerPlay());
-    alert(scoreCompare());
-}
-
 function scoreCompare(){
     if (player_score > computer_score){
         return "You win the game! " + player_score + " - " + computer_score;
@@ -68,3 +60,11 @@ function scoreCompare(){
         return "Tie game."  + player_score + " - " + computer_score;
     }
 }
+
+const clickPlayRound = document.querySelectorAll(".playerButton");
+clickPlayRound.forEach((button) =>{
+    button.addEventListener("click", (e)=>{
+        playRound(button.id, computerPlay());
+        alert(player_score + "-" + computer_score);
+    });
+});
