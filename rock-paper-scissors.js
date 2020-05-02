@@ -52,51 +52,56 @@ function updateRoundDescriptor(message){
 const updateRoundDescriptor = document.querySelector("#roundDescriptor")
 updateRoundDescriptor.textContent = message;
 }
-function scoreCompare(){
-    if (playerScore > computerScore){
-        return "You win the game! " + playerScore + " - " + computerScore;
-    }
-    else if (playerScore < computerScore){
-        return "You lose the game."  + playerScore + " - " + computerScore;;
-    }
-    else{
-        return "Tie game."  + playerScore + " - " + computerScore;
-    }
-}
+
+
 function updatePlayerScore(){
 const updatePlayerScore = document.querySelector("#playerScore");
 updatePlayerScore.textContent = playerScore;
 }
+
 function updateComputerScore(){
     const updateComputerScore = document.querySelector("#computerScore");
     updateComputerScore.textContent = computerScore;
-    }
+}
+
 function checkScore(scoreToWin){
     if (playerScore == scoreToWin){
         playerWin();
     }
     else if (computerScore == scoreToWin){
-        computerWin()
+        computerWin();
+    }
+    else if ((playerScore == scoreToWin)&&(computerScore ==scoreToWin)){
+        tieGame();
     }
     return;
-}
+} 
+
 function playerWin(){
 const game = document.querySelector("#game")
-    removeAllChildren();
+    removeAllChildren(game);
     game.textContent = `You Win ${playerScore} - ${computerScore}`;
     return;
 }
-function removeAllChildren(){
-    while (game.firstChild) {
-        game.removeChild(game.lastChild);
-      }
-}
+
 function computerWin(){
     const game = document.querySelector("#game")
-    removeAllChildren();
+    removeAllChildren(game);
     game.textContent = `You lose! ${playerScore} - ${computerScore}`;
     return;
+}
+function tieGame(){
+    const game = document.querySelector("#game")
+        removeAllChildren(game);
+        game.textContent = `You Tied ${playerScore} - ${computerScore}`;
+        return;
     }
+function removeAllChildren(parentNode){
+    while (parentNode.firstChild) {
+        parentNode.removeChild(parentNode.lastChild);
+      }
+}
+
 const clickPlayRound = document.querySelectorAll(".playerButton");
 clickPlayRound.forEach((button) =>{
     button.addEventListener("click", (e)=>{
