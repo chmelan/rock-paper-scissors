@@ -81,6 +81,7 @@ function playerWin(){
 const game = document.querySelector("#game")
     removeAllChildren(game);
     game.textContent = `You Win ${playerScore} - ${computerScore}`;
+    createRestartButton();
     return;
 }
 
@@ -88,12 +89,14 @@ function computerWin(){
     const game = document.querySelector("#game")
     removeAllChildren(game);
     game.textContent = `You lose! ${playerScore} - ${computerScore}`;
+    createRestartButton();
     return;
 }
 function tieGame(){
     const game = document.querySelector("#game")
         removeAllChildren(game);
-        game.textContent = `You Tied ${playerScore} - ${computerScore}`;
+        game.textContent = `You Tied! ${playerScore} - ${computerScore}`;
+        createRestartButton();
         return;
     }
 function removeAllChildren(parentNode){
@@ -101,6 +104,17 @@ function removeAllChildren(parentNode){
         parentNode.removeChild(parentNode.lastChild);
       }
 }
+
+function createRestartButton(){
+const btn = document.createElement("BUTTON");   // Create a <button> element
+btn.innerHTML = "New Game?"; 
+btn.id = "newGameBtn"                  // Insert text
+document.body.appendChild(btn); 
+btn.addEventListener("click", (e)=>{
+    location.reload();
+})    
+}
+
 
 const clickPlayRound = document.querySelectorAll(".playerButton");
 clickPlayRound.forEach((button) =>{
@@ -111,3 +125,4 @@ clickPlayRound.forEach((button) =>{
         checkScore(5);
     });
 });
+
