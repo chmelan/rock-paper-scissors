@@ -71,12 +71,38 @@ function updateComputerScore(){
     const updateComputerScore = document.querySelector("#computerScore");
     updateComputerScore.textContent = computerScore;
     }
-
+function checkScore(scoreToWin){
+    if (playerScore == scoreToWin){
+        playerWin();
+    }
+    else if (computerScore == scoreToWin){
+        computerWin()
+    }
+    return;
+}
+function playerWin(){
+const game = document.querySelector("#game")
+    removeAllChildren();
+    game.textContent = `You Win ${playerScore} - ${computerScore}`;
+    return;
+}
+function removeAllChildren(){
+    while (game.firstChild) {
+        game.removeChild(game.lastChild);
+      }
+}
+function computerWin(){
+    const game = document.querySelector("#game")
+    removeAllChildren();
+    game.textContent = `You lose! ${playerScore} - ${computerScore}`;
+    return;
+    }
 const clickPlayRound = document.querySelectorAll(".playerButton");
 clickPlayRound.forEach((button) =>{
     button.addEventListener("click", (e)=>{
         playRound(button.id, computerPlay());
         updatePlayerScore();
         updateComputerScore();
+        checkScore(5);
     });
 });
