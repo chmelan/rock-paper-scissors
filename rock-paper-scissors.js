@@ -23,32 +23,35 @@ function playRound( playerSelection, computerSelection){
 if (player == computer){
     ++playerScore;
     ++computerScore;
-    return alert("You Tied!");
+    return updateRoundDescriptor("You Tied!");
 }
 else if ((player == "rock")&&(computer == "scissors")){
     ++playerScore;
-    return alert("You win! Rock beats Scissors!");
+    return updateRoundDescriptor("You win! Rock beats Scissors!");
 }
 else if ((player == "paper")&&(computer == "rock")){ 
     ++playerScore;
-    return alert("You win! Paper beats Rock!");
+    return updateRoundDescriptor("You win! Paper beats Rock!");
 }
 else if ((player == "scissors")&&(computer == "paper")){
     ++playerScore;
-    return alert("You win! Scissors beats Paper!");
+    return updateRoundDescriptor("You win! Scissors beats Paper!");
 }
 else if ((player == "rock")&&(computer == "paper")){
     ++computerScore;
-    return alert("You lose! Paper beats Rock!")
+    return updateRoundDescriptor("You lose! Paper beats Rock!")
 }else if ((player == "paper")&&(computer == "scissors")){
     ++computerScore
-    return alert("You lose! Scissors beats Paper!");
+    return updateRoundDescriptor("You lose! Scissors beats Paper!");
 }else if ((player == "scissors")&&(computer == "rock")){
     ++computerScore;
-    return alert("You lose! Rock beats Scissors!");
+    return updateRoundDescriptor("You lose! Rock beats Scissors!");
 }
 }
-
+function updateRoundDescriptor(message){
+const updateRoundDescriptor = document.querySelector("#roundDescriptor")
+updateRoundDescriptor.textContent = message;
+}
 function scoreCompare(){
     if (playerScore > computerScore){
         return "You win the game! " + playerScore + " - " + computerScore;
