@@ -1,5 +1,5 @@
-let player_score = 0;
-let computer_score = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 function computerPlay(){
 switch(Math.floor(Math.random()*3)){
@@ -21,50 +21,59 @@ function playRound( playerSelection, computerSelection){
     let player = playerSelection;
     let computer = computerSelection;
 if (player == computer){
-    ++player_score;
-    ++computer_score;
+    ++playerScore;
+    ++computerScore;
     return alert("You Tied!");
 }
 else if ((player == "rock")&&(computer == "scissors")){
-    ++player_score;
+    ++playerScore;
     return alert("You win! Rock beats Scissors!");
 }
 else if ((player == "paper")&&(computer == "rock")){ 
-    ++player_score;
+    ++playerScore;
     return alert("You win! Paper beats Rock!");
 }
 else if ((player == "scissors")&&(computer == "paper")){
-    ++player_score;
+    ++playerScore;
     return alert("You win! Scissors beats Paper!");
 }
 else if ((player == "rock")&&(computer == "paper")){
-    ++computer_score;
+    ++computerScore;
     return alert("You lose! Paper beats Rock!")
 }else if ((player == "paper")&&(computer == "scissors")){
-    ++computer_score
+    ++computerScore
     return alert("You lose! Scissors beats Paper!");
 }else if ((player == "scissors")&&(computer == "rock")){
-    ++computer_score;
+    ++computerScore;
     return alert("You lose! Rock beats Scissors!");
 }
 }
 
 function scoreCompare(){
-    if (player_score > computer_score){
-        return "You win the game! " + player_score + " - " + computer_score;
+    if (playerScore > computerScore){
+        return "You win the game! " + playerScore + " - " + computerScore;
     }
-    else if (player_score < computer_score){
-        return "You lose the game."  + player_score + " - " + computer_score;;
+    else if (playerScore < computerScore){
+        return "You lose the game."  + playerScore + " - " + computerScore;;
     }
     else{
-        return "Tie game."  + player_score + " - " + computer_score;
+        return "Tie game."  + playerScore + " - " + computerScore;
     }
 }
+function updatePlayerScore(){
+const updatePlayerScore = document.querySelector("#playerScore");
+updatePlayerScore.textContent = playerScore;
+}
+function updateComputerScore(){
+    const updateComputerScore = document.querySelector("#computerScore");
+    updateComputerScore.textContent = computerScore;
+    }
 
 const clickPlayRound = document.querySelectorAll(".playerButton");
 clickPlayRound.forEach((button) =>{
     button.addEventListener("click", (e)=>{
         playRound(button.id, computerPlay());
-        alert(player_score + "-" + computer_score);
+        updatePlayerScore();
+        updateComputerScore();
     });
 });
