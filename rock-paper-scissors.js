@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<head>
-    <title>Rock Paper Scissors!</title>
-</head>
-<body>
-<script>
 let player_score = 0;
 let computer_score = 0;
 
@@ -74,6 +68,3 @@ function scoreCompare(){
         return "Tie game."  + player_score + " - " + computer_score;
     }
 }
-
-</script>
-</body>
