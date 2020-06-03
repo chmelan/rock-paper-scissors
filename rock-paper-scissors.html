@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Rock Paper Scissors!</title>
-        <link rel="stylesheet" href="default-style-sheet.css">
-        <link rel="stylesheet" href="rock-paper-scissors.css">
-    </head>
-    <body>
-        <h1 id="pageHeading">ROCK PAPER SCISSORS GAME</h1>
-        <div id="game">
-            <div id="playerButtons">
-                <button class="playerButton" id="rock" data-playerChoice="rock">ROCK</button>
-                <button class="playerButton" id="paper" data-playerChoice="paper">PAPER</button>
-                <button class="playerButton" id="scissors" data-playerChoice="scissors">SCISSORS</button>
-            </div>
-            <div id="roundDescriptor"> </div>
-            <div id="scores">
-                <div id="playerScoreContainer">
-                    <div>Player Score</div>
-                    <div id="playerScore">0</div>
-                </div>
-                <div id="computerScoreContainer">
-                    <div>Computer Score</div>
-                    <div id="computerScore">0</div>
-                </div>
-            </div>
+  <head>
+    <title>Rock Paper Scissors!</title>
+    <link rel="stylesheet" href="default-style-sheet.css" />
+    <link rel="stylesheet" href="rock-paper-scissors.css" />
+  </head>
+  <body>
+    <h1 id="pageHeading">ROCK PAPER SCISSORS GAME</h1>
+    <div id="game">
+      <div id="playerButtons">
+        <button class="playerButton" id="rock" data-playerChoice="rock">
+          ROCK
+        </button>
+        <button class="playerButton" id="paper" data-playerChoice="paper">
+          PAPER
+        </button>
+        <button class="playerButton" id="scissors" data-playerChoice="scissors">
+          SCISSORS
+        </button>
+      </div>
+      <div id="roundDescriptor"></div>
+      <div id="scores">
+        <div id="playerScoreContainer">
+          <div>Player Score</div>
+          <div id="playerScore">0</div>
         </div>
-        <script src="rock-paper-scissors.js"></script>
-    </body>
+        <div id="computerScoreContainer">
+          <div>Computer Score</div>
+          <div id="computerScore">0</div>
+        </div>
+      </div>
+    </div>
+    <script src="rock-paper-scissors.js"></script>
+  </body>
 </html>
